@@ -48,7 +48,7 @@ export default function Employees(props) {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            {employees.map(value => {
+                            {employees&&employees.map(value => {
                                 return (
                                     <TableRow
                                         key={value.id}

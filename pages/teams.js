@@ -63,7 +63,7 @@ export default function Teams(props) {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {teams.map(value => {
+                        {teams&&teams.map(value => {
                             return (
                                 <TableRow
                                     key={value.id}

@@ -75,7 +75,7 @@ export default function Projects(props) {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {projects.map(value => {
+                        {projects&&projects.map(value => {
                             return (
                                 <TableRow
                                     key={value.id}
