@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-const BaseUrl="http://localhost:3000/api";
+const BaseUrl="https://main--legendary-meerkat-410f2c.netlify.app/api";
 
 
 
