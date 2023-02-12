@@ -79,7 +79,8 @@ export default function Employees(props) {
 export async function getStaticProps(context){
     const res= await getEmployees();
 
+
     return {
-        props:{data:res.data},
+        props:{data:res.data&[]},
     }
 }

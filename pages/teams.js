@@ -98,6 +98,6 @@ export async function getStaticProps(context){
     console.log(res1);
     console.log(res2);
     return {
-        props:{teams:res1.data, employees:res2.data},
+        props:{teams:res1.data?res1.data:[], employees:res2.data?res1.data:[]},
     }
 }

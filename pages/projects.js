@@ -105,6 +105,6 @@ export async function getStaticProps(context){
     const res=await getTeamsAndProjects();
 
     return {
-        props:{teams:res.data.teams, projects:res.data.projects},
+        props:{teams:res.data.teams?res.data.teams:[], projects:res.data.projects?res.data.projects:[]},
     }
 }
