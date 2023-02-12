@@ -38,7 +38,7 @@ export default function Teams(props) {
 
 
     const getDirector=(id)=>{
-       return employees.map((value)=>{
+       return employees&&employees.map((value)=>{
             return value.id===id&&value.firstName+" "+value.lastName;
         });
         return "Rahbar topilmadi"
@@ -50,39 +50,41 @@ export default function Teams(props) {
             <Typography variant={"h6"}>Teams</Typography>
 
 
-            <TableContainer component={Paper}>
-                <Table sx={{ minWidth: 650 }} aria-label="simple table">
-                    <TableHead>
-                        <TableRow>
-                            <TableCell width={"5%"}>Tartib raqami</TableCell>
-                            <TableCell>Nomi</TableCell>
-                            <TableCell>Rahbari</TableCell>
-                            <TableCell align={"center"}>
-                                Amallar
-                            </TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {teams&&teams.map(value => {
-                            return (
-                                <TableRow
-                                    key={value.id}
-                                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                                >
-                                    <TableCell component="th" scope="row">
-                                        {++index}
-                                    </TableCell>
-                                    <TableCell>{value.name}</TableCell>
-                                    <TableCell>{getDirector(value.id)}</TableCell>
-                                    <TableCell align="center">
-                                        <Button variant={"contained"} color={"success"} onClick={()=>{router.push("/teams/"+value.id)}}>Ko`rish</Button>
-                                    </TableCell>
-                                </TableRow>
-                            );
-                        })}
-                    </TableBody>
-                </Table>
-            </TableContainer>
+            {teams!=[] && teams!=undefined?
+                <TableContainer component={Paper}>
+                    <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                        <TableHead>
+                            <TableRow>
+                                <TableCell width={"5%"}>Tartib raqami</TableCell>
+                                <TableCell>Nomi</TableCell>
+                                <TableCell>Rahbari</TableCell>
+                                <TableCell align={"center"}>
+                                    Amallar
+                                </TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {teams&&teams.map(value => {
+                                return (
+                                    <TableRow
+                                        key={value.id}
+                                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                    >
+                                        <TableCell component="th" scope="row">
+                                            {++index}
+                                        </TableCell>
+                                        <TableCell>{value.name}</TableCell>
+                                        <TableCell>{getDirector(value.id)}</TableCell>
+                                        <TableCell align="center">
+                                            <Button variant={"contained"} color={"success"} onClick={()=>{router.push("/teams/"+value.id)}}>Ko`rish</Button>
+                                        </TableCell>
+                                    </TableRow>
+                                );
+                            })}
+                        </TableBody>
+                    </Table>
+                </TableContainer>:
+                <Typography>Teamlar mavjud emas</Typography>}
 
 
         </Layaut2>
