@@ -12,24 +12,24 @@ import {getEmployees, getTeams, getTeamsAndProjects} from "@/components/api";
 
 
 
-export default function Teams() {
-    const [teams, setTeams]=useState([]);
-    const [employees, setEmployees]=useState([]);
+export default function Teams(props) {
+    const [teams, setTeams]=useState(props.team);
+    const [employees, setEmployees]=useState(props.employees);
 
-     useEffect(()=>{
-         getTeamsAndProjects().then((res)=>{
-             if (res.success){
-                 setTeams(res.data.teams);
-             }
-         })
-
-
-         getEmployees().then((res)=>{
-             if (res.success){
-                 setEmployees(res.data)
-             }
-         });
-     }, []);
+     // useEffect(()=>{
+     //     getTeamsAndProjects().then((res)=>{
+     //         if (res.success){
+     //             setTeams(res.data.teams);
+     //         }
+     //     })
+     //
+     //
+     //     getEmployees().then((res)=>{
+     //         if (res.success){
+     //             setEmployees(res.data)
+     //         }
+     //     });
+     // }, []);
 
 
     const router=useRouter();
@@ -92,14 +92,14 @@ export default function Teams() {
 }
 
 
-// export async function getStaticProps(context){
-//     console.log(context);
-//     const res1=await getTeams();
-//     const res2=await getEmployees();
-//
-//     console.log(res1);
-//     console.log(res2);
-//     return {
-//         props:{teams:res1.data?res1.data:[], employees:res2.data?res1.data:[]},
-//     }
-// }
+export async function getStaticProps(context){
+    console.log(context);
+    const res1=await getTeams();
+    const res2=await getEmployees();
+
+    console.log(res1);
+    console.log(res2);
+    return {
+        props:{teams:res1.data?res1.data:[], employees:res2.data?res1.data:[]},
+    }
+}
