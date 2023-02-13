@@ -16,6 +16,8 @@ export default function Teams(props) {
     const [teams, setTeams]=useState(props.team);
     const [employees, setEmployees]=useState(props.employees);
 
+    console.log(props);
+
      // useEffect(()=>{
      //     getTeamsAndProjects().then((res)=>{
      //         if (res.success){
